@@ -1,5 +1,20 @@
 ---
+import '../styles/global.css'
 
+const pageTitle = "About Me";
+
+const me = {
+    firstName: "Samiul",
+    country: "Bangladesh",
+    profession: "programmer",
+    grade: "10",
+    hobbies: ["reading", "coding", "speedcubing", "chess"]
+}
+
+const skills = ["HTML", "CSS", "JS", "React","Python", "FastAPI", "Astro", "Supabase"]
+const skillColor = "cornflowerblue"
+const fontWeight = "bold"
+const textCase = "capitalize"
 ---
 
 <html lang="en">
@@ -9,7 +24,14 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+    </style>
 	</head>
 	<body>
         <div class="navbar" style="display: flex; gap: 23px;">
@@ -18,7 +40,14 @@
             <a href="/blog/">Blog</a>
         </div>
 
-		<h1>About</h1>
-		<p>Hoping my best for it to work..</p>
+		<h1>{pageTitle}</h1>
+		<p>Hi there, I am {me.firstName}, a {me.grade}th {me.profession} living in {me.country}. </p>
+        {me.hobbies.length >= 3 && 
+            <p>My main two hobbies are {me.hobbies[0]} and {me.hobbies[1]}, while I also like {me.hobbies[2]}.</p>
+        }
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
 	</body>
 </html>
