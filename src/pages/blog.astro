@@ -1,4 +1,6 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css'
 const pageTitle = "Blog";
 ---
@@ -13,11 +15,7 @@ const pageTitle = "Blog";
 		<title>Blog</title>
 	</head>
 	<body>
-        <div class="navbar" style="display: flex; gap: 23px;">
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/blog/">Blog</a>
-        </div>
+        <Header />
 
 		<h1>Blog</h1>
 		<p>hm, this is almost identical to my own portfolio, that's also going to have a blog section, obviously..</p>
@@ -28,5 +26,7 @@ const pageTitle = "Blog";
             <li><a href="/posts/post-2">Post 2</a></li>
             <li><a href="/posts/post-3">Post 3</a></li>
         </ul>
+		
+        <Footer />
 	</body>
 </html>
